@@ -1,5 +1,7 @@
 // Vòng for 100 lần
-for (let i = 0; i < 100; i++) {}
+for (let i = 0; i < 100; i++) {
+  console.log(i);
+}
 console.log("Done");
 
 function callback1() {
