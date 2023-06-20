@@ -1,14 +1,16 @@
-interface User {
-  name: string
-  age: number
+import express from 'express'
+const app = express()
+const port = 3000
+
+const sum = (obj: { a: number; b: number }) => {
+  return obj.a + obj.b
 }
 
-const render = (user: User) => {
-  console.log(user)
-}
-const user = {
-  name: 'Galvin',
-  age: 23
-}
+app.get('/', (req, res) => {
+  const value = sum({ a: 1, b: 2 })
+  res.send(`Hello World!, ${value}`)
+})
 
-render(user)
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
