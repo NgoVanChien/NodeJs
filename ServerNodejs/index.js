@@ -1,24 +1,14 @@
-// const kill = require("kill-port");
-const http = require("http");
+const express = require("express");
+const app = express();
+const port = 3000;
 
-const PORT = 3003;
-
-const server = http.createServer((req, res) => {
-  res.setHeader("Content-Type", "application/json");
-  res.end(`{"message": hello"}`);
+app.get("/", (req, res) => {
+  res.send("Hello !!!!! ");
+});
+app.get("/hi", (req, res) => {
+  res.send("Hi World!");
 });
 
-server.listen(PORT, () => {
-  console.log(`Server is running om port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
-
-// netstat -ano|findstr "PID :NUMBER_PORT"
-// taskkill /PID <PID> /f
-
-// setTimeout(() => {
-
-// Currently you can kill ports running on TCP or UDP protocols
-//     kill(port, 'tcp')
-//       .then(console.log)
-//       .catch(console.log)
-//   }, 1000)
