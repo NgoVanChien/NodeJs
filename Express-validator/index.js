@@ -16,7 +16,7 @@ app.get(
       console.log(data);
       return res.send(`Hello, ${req.query.person}!`);
     }
-    console.log(errors.array);
+    // console.log(errors.array);
     res.status(400).json({ errors: errors.array() });
   }
 );
