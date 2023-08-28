@@ -11,10 +11,10 @@ Với mỗi request handler thì chúng ta sẽ có 3 tham số là `req`, `res`
 Nếu không dùng `next` thì không cần khai báo cũng được
 
 ```ts
-app.get('/users', (req, res, next) => {
+app.get("/users", (req, res, next) => {
   // do something
-  res.send('Hello world')
-})
+  res.send("Hello world");
+});
 ```
 
 - Gọi `next()` để chuyển request sang request handler tiếp theo
@@ -36,9 +36,9 @@ Nếu chỉ khai báo 3 tham số thì nó sẽ được coi là request handler
 app.use((err, req, res, next) => {
   if (err) {
     // do something
-    res.status(400).send('Error')
+    res.status(400).send("Error");
   }
-})
+});
 ```
 
 ## Flow nên làm
@@ -46,3 +46,30 @@ app.use((err, req, res, next) => {
 Tất cả các lỗi nên được đưa về hết một chỗ để xử lý và trả về cho người dùng.
 
 Chúng ta gọi chỗ đó là default error handler và nó sẽ được đặt ở cấp độ app
+
+## Format lỗi trả về cho người dùng
+
+Chúng ta nên thống nhất format lỗi trả về cho người dùng
+
+Lỗi thường
+
+```ts
+{
+  message: string
+  error_info?: any
+}
+```
+
+Lỗi validation (422)
+
+```ts
+{
+  message: string,
+  errors: {
+    [field: string]: {
+      msg: string
+      [key: string]: any
+    }
+  }
+}
+```
