@@ -40,9 +40,15 @@ export default function Chat() {
       const { payload } = data;
       setConversations((conversations) => [...conversations, payload]);
     });
+    // Middleware Server Instance
     socket.on("connect_error", (err) => {
       console.log(err.data);
     });
+    // Middleware cho Socket
+    socket.on("disconnect", (reason) => {
+      console.log(reason);
+    });
+
     return () => {
       socket.disconnect();
     };
