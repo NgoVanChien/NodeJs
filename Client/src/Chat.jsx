@@ -38,7 +38,11 @@ export default function Chat() {
   useEffect(() => {
     socket.on("receive_message", (data) => {
       const { payload } = data;
-      setConversations((conversations) => [...conversations, payload]);
+      setConversations((conversations) => [payload, ...conversations]);
+    });
+    socket.on("send_message_success", (data) => {
+      const { payload } = data;
+      setConversations((conversations) => [payload, ...conversations]);
     });
     // Middleware Server Instance
     socket.on("connect_error", (err) => {
@@ -114,13 +118,6 @@ export default function Chat() {
     socket.emit("send_message", {
       payload: conversation,
     });
-    setConversations((conversations) => [
-      {
-        ...conversation,
-        _id: new Date().getTime(),
-      },
-      ...conversations,
-    ]);
   };
 
   return (
