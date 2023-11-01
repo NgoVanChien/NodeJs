@@ -5,7 +5,6 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Hls from "hls.js";
 import Plyr from "plyr";
-// nãy quên copy cái đoạn css của plyr
 import "plyr/dist/plyr.css";
 
 // console.log(import.meta.env);
