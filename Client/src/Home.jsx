@@ -89,32 +89,6 @@ export default function Home() {
         />
       </video>
       <h2>HLS Streaming</h2>
-      {/* <MediaPlayer
-        title="Sprite Fight"
-        src="http://localhost:4000/static/video-hls/Gui0fj6ogn9V7QQrYkqdj/master.m3u8"
-        // poster="https://image.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/thumbnail.webp?time=268&width=980"
-        // thumbnails="https://media-files.vidstack.io/sprite-fight/thumbnails.vtt"
-        aspectRatio={16 / 9}
-        crossorigin=""
-      > */}
-      {/* <MediaOutlet>
-          <MediaPoster alt="Girl walks into sprite gnomes around her friend on a campfire in danger!" /> */}
-      {/* <track
-            src="https://media-files.vidstack.io/sprite-fight/subs/english.vtt"
-            label="English"
-            srcLang="en-US"
-            kind="subtitles"
-            default
-          />
-          <track
-            src="https://media-files.vidstack.io/sprite-fight/chapters.vtt"
-            srcLang="en-US"
-            kind="chapters"
-            default
-          /> */}
-      {/* </MediaOutlet>
-        <MediaCommunitySkin />
-      </MediaPlayer> */}
 
       <video
         id="player"
